@@ -1,0 +1,33 @@
+# File: .github/workflows/schedule_crawler.yml
+
+name: Run Daily YouTube Crawler
+
+on:
+  schedule:
+    # Menjalankan pada pukul 13:00 UTC, yaitu jam 20:00 WIB (UTC+7)
+    - cron: '0 13 * * *'
+  workflow_dispatch: # Tombol untuk menjalankan manual dari tab Actions di GitHub
+
+jobs:
+  scrape-and-analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run the crawler script
+        run: python crawler.py
+        env:
+          # Ambil secrets yang sudah Anda simpan di GitHub
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
