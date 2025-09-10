@@ -6,8 +6,6 @@ pandas
 torch
 wordcloud
 streamlit
-
 numpy
 scikit-learn
-
 matplotlib

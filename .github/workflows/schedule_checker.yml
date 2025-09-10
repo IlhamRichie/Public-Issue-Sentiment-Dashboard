@@ -1,0 +1,28 @@
+name: Check Sentiment Spikes Hourly
+
+on:
+  schedule:
+    # Menjalankan setiap jam
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  check-spikes:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: pip install pymongo python-dotenv
+
+      - name: Run the checker script
+        run: python checker.py
+        env:
+          MONGO_CONNECTION_STRING: ${{ secrets.MONGO_CONNECTION_STRING }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
