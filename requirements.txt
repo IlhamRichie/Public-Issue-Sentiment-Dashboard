@@ -9,3 +9,5 @@ streamlit
 numpy
 scikit-learn
 matplotlib
+Flask
+gunicorn
