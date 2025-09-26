@@ -1,6 +1,6 @@
 # Dashboard Analisis Sentimen Isu Publik
 
-![Dashboard Screenshot](path/to/your/dashboard-screenshot.jpg)
+![Dashboard Screenshot](dashboard.png)
 
 Sebuah dashboard interaktif untuk memvisualisasikan dan menganalisis sentimen publik dari komentar media sosial (YouTube) secara real-time. Proyek ini dibangun untuk memahami opini publik terhadap isu-isu yang sedang hangat dibicarakan.
 
@@ -33,7 +33,7 @@ Dalam waktu 3 hari, proyek ini dikembangkan sebagai sebuah *proof-of-concept* un
 
 Sistem ini dirancang dengan pendekatan berbasis service untuk memastikan skalabilitas dan kemudahan maintenance. Alur kerja data dimulai dari *crawler* yang terjadwal, pemrosesan oleh *sentiment checker*, penyimpanan di database, hingga penyajian data melalui API ke dashboard.
 
-![Architecture Diagram](path/to/your/architecture-diagram.png)
+![Architecture Diagram](arsitekturnya.png)
 
 ## 🚀 Instalasi & Konfigurasi
 
